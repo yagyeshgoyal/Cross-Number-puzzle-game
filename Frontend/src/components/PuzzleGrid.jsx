@@ -1,4 +1,5 @@
 import React from 'react'
+import GridCell from "./GridCell";
 
 const PuzzleGrid = ({ puzzle, grid, selectedCell, showResult, onCellClick }) => {
   const getCellStatus = (row, col) => {

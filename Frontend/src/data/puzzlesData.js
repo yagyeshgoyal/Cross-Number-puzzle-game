@@ -130,3 +130,6 @@ const puzzlesData = [
     ]
   }
 ];
+
+
+export default puzzlesData;

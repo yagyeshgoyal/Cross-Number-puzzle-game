@@ -1,4 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import { Check, HelpCircle } from "lucide-react";
+
+import puzzlesData from "../data/puzzlesData";
+import PuzzleGrid from "./PuzzleGrid";
+import RulesDisplay from "./RulesDisplay";
+import ResultDisplay from "./ResultDisplay";
 
 const CrossNumbersGame = () => {
   const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(0);
@@ -101,14 +107,14 @@ const CrossNumbersGame = () => {
         </div>
 
         <div className="bg-white rounded-lg shadow-xl p-6 mb-6">
-          <div className="flex gap-4 mb-6 flex-wrap justify-end">
+          {/* <div className="flex gap-4 mb-6 flex-wrap justify-end">
             <button
               onClick={showSolution}
               className="px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 flex items-center gap-2 font-semibold"
             >
               <HelpCircle size={18} /> Show Solution
             </button>
-          </div>
+          </div> */}
 
           <RulesDisplay rules={currentPuzzle.rules} />
           
@@ -142,17 +148,7 @@ const CrossNumbersGame = () => {
           </div>
         )}
 
-        <div className="bg-white rounded-lg shadow-lg p-6">
-          <h3 className="font-bold text-lg mb-3">📖 How to Play:</h3>
-          <div className="space-y-2 text-gray-700">
-            <p><strong>1.</strong> Read all the rules carefully above the grid</p>
-            <p><strong>2.</strong> Click on any white (dashed border) cell to select it</p>
-            <p><strong>3.</strong> Type a number (0-9) to fill the cell</p>
-            <p><strong>4.</strong> Fill all cells to satisfy ALL the rules</p>
-            <p><strong>5.</strong> Click "Submit Answer" to check if you're correct</p>
-            <p className="text-sm text-gray-600 mt-3">💡 The labels show which cells form Number 1 and Number 2</p>
-          </div>
-        </div>
+        
       </div>
     </div>
   );

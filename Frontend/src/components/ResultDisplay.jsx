@@ -1,4 +1,5 @@
 import React from 'react'
+import { ArrowRight } from "lucide-react";
 
 const ResultDisplay = ({ isCorrect, wrongRules, onNextPuzzle, isLastPuzzle, showNextButton }) => {
   if (isCorrect) {
