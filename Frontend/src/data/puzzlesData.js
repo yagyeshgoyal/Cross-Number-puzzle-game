@@ -10,13 +10,14 @@ const puzzlesData = [
              [4,0], [4,1], [4,3], [4,4], [4,5], [4,6],
              [5,0], [5,1], [5,2], [5,3], [5,4], [5,5], [5,6],
              [6,0], [6,1], [6,2], [6,3], [6,4], [6,5], [6,6]],
+    numbers: ['0','1','2','3','3','9','9'],
     rules: [
       {
         id: 1,
         description: "Make the smallest 5-digit number where the sum of all digits is 15",
         check: (grid) => {
           const num1 = [grid[0][2], grid[1][2], grid[2][2], grid[3][2], grid[4][2]];
-          if (num1.some(d => d === '' || d === 'black')) return { valid: false, current: null };
+          if (num1.some(d => d === '' || d === 'black' || d === null)) return { valid: false, current: null, expected: '10239 (sum=15)' };
           const numStr = num1.join('');
           const sum = num1.reduce((a, b) => parseInt(a) + parseInt(b), 0);
           return { 
@@ -49,9 +50,9 @@ const puzzlesData = [
     solution: [
       ['black','black','1','black','black','black','black'],
       ['black','black','0','black','black','black','black'],
-      ['black','3','2','4','black','black','black'],
+      ['black','3','2','9','black','black','black'],
       ['black','black','3','black','black','black','black'],
-      ['black','black','9','black','black','black','black'],
+      ['black','black','black','9','black','black','black'],
       ['black','black','black','black','black','black','black'],
       ['black','black','black','black','black','black','black']
     ]
@@ -65,13 +66,14 @@ const puzzlesData = [
              [4,0], [4,1], [4,2],
              [5,0], [5,1], [5,3], [5,5], [5,6],
              [6,0], [6,1], [6,2], [6,4], [6,5], [6,6]],
+    numbers: ['0','1','2','3','3','9','9'],
     rules: [
       {
         id: 1,
         description: "Make the largest 4-digit number where sum of all digits is 20",
         check: (grid) => {
           const num = [grid[0][3], grid[1][2], grid[2][2], grid[3][2]];
-          if (num.some(d => d === '' || d === 'black')) return { valid: false, current: null };
+          if (num.some(d => d === '' || d === 'black' || d === null)) return { valid: false, current: null };
           const numStr = num.join('');
           const sum = num.reduce((a, b) => parseInt(a) + parseInt(b), 0);
           return { 
@@ -87,7 +89,7 @@ const puzzlesData = [
         description: "Make the smallest 6-digit number where the difference between largest and smallest digit is 4",
         check: (grid) => {
           const num = [grid[1][3], grid[2][3], grid[3][3], grid[4][3], grid[5][4], grid[6][3]];
-          if (num.some(d => d === '' || d === 'black')) return { valid: false, current: null };
+          if (num.some(d => d === '' || d === 'black' || d === null)) return { valid: false, current: null };
           const numStr = num.join('');
           const digits = num.map(d => parseInt(d));
           const max = Math.max(...digits);
