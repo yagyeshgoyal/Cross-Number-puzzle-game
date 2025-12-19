@@ -7,6 +7,7 @@ const PuzzleGrid = ({ puzzle, grid, selectedCell, showResult, onCellClick }) => 
     
     const userValue = grid[row][col];
     const correctValue = puzzle.solution[row][col];
+
     
     if (userValue === correctValue) {
       return 'correct';

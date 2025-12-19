@@ -4,25 +4,26 @@ const puzzlesData = [
     title: "Puzzle 1",
     size: 7,
     blacks: [[0,0], [0,1], [0,3], [0,4], [0,5], [0,6], 
-             [1,0], [1,2], [1,4], [1,5], [1,6],
-             [3,0], [3,2], [3,4], [3,5], [3,6],
-             [4,0], [4,1], [4,2], [4,4], [4,5], [4,6],
-             [5,0], [5,1], [5,2], [5,4], [5,5], [5,6],
-             [6,0], [6,1], [6,2], [6,4], [6,5], [6,6]],
+             [1,0], [1,1], [1,3], [1,4], [1,5], [1,6],
+             [2,0], [2,4], [2,5], [2,6],
+             [3,0], [3,1], [3,3], [3,4], [3,5], [3,6],
+             [4,0], [4,1], [4,3], [4,4], [4,5], [4,6],
+             [5,0], [5,1], [5,2], [5,3], [5,4], [5,5], [5,6],
+             [6,0], [6,1], [6,2], [6,3], [6,4], [6,5], [6,6]],
     rules: [
       {
         id: 1,
         description: "Make the smallest 5-digit number where the sum of all digits is 15",
         check: (grid) => {
-          const num1 = [grid[0][2], grid[1][1], grid[2][1], grid[3][1], grid[4][3]];
+          const num1 = [grid[0][2], grid[1][2], grid[2][2], grid[3][2], grid[4][2]];
           if (num1.some(d => d === '' || d === 'black')) return { valid: false, current: null };
           const numStr = num1.join('');
           const sum = num1.reduce((a, b) => parseInt(a) + parseInt(b), 0);
           return { 
-            valid: sum === 15 && numStr === '10149',
+            valid: sum === 15 && numStr === '10239',
             current: numStr,
             sum: sum,
-            expected: '10149 (sum=15)'
+            expected: '10239 (sum=15)'
           };
         }
       },
@@ -31,7 +32,7 @@ const puzzlesData = [
         description: "The value of hundreds place in 5-digit number should be 100 more than the value of hundreds place in 3-digit number",
         check: (grid) => {
           const num1Hundreds = parseInt(grid[2][1]) * 100;
-          const num2Hundreds = parseInt(grid[2][3]) * 100;
+          const num2Hundreds = parseInt(grid[2][2]) * 100;
           if (isNaN(num1Hundreds) || isNaN(num2Hundreds)) return { valid: false, current: null };
           return { 
             valid: num1Hundreds === num2Hundreds + 100,
@@ -47,10 +48,10 @@ const puzzlesData = [
     ],
     solution: [
       ['black','black','1','black','black','black','black'],
-      ['black','0','black','black','black','black','black'],
-      ['2','1','black','2','4','6','black'],
-      ['black','4','black','black','black','black','black'],
-      ['black','black','black','9','black','black','black'],
+      ['black','black','0','black','black','black','black'],
+      ['black','3','2','4','black','black','black'],
+      ['black','black','3','black','black','black','black'],
+      ['black','black','9','black','black','black','black'],
       ['black','black','black','black','black','black','black'],
       ['black','black','black','black','black','black','black']
     ]
