@@ -34,7 +34,7 @@ const puzzlesData = [
         check: (grid) => {
           const num1Hundreds = parseInt(grid[2][1]) * 100;
           const num2Hundreds = parseInt(grid[2][2]) * 100;
-          if (isNaN(num1Hundreds) || isNaN(num2Hundreds)) return { valid: false, current: null };
+          if (isNaN(num1Hundreds) || isNaN(num2Hundreds)) return { valid: false, current: null , expected: '329'};
           return { 
             valid: num1Hundreds === num2Hundreds + 100,
             current: `${num1Hundreds} vs ${num2Hundreds}`,
@@ -74,7 +74,7 @@ const puzzlesData = [
         description: "Make the largest 4-digit number where sum of all digits is 20",
         check: (grid) => {
           const num = [grid[0][3], grid[1][3], grid[2][3], grid[3][3]];
-          if (num.some(d => d === '' || d === 'black' || d === null)) return { valid: false, current: null };
+          if (num.some(d => d === '' || d === 'black' || d === null)) return { valid: false, current: null , expected: '9911'};
           const numStr = num.join('');
           const sum = num.reduce((a, b) => parseInt(a) + parseInt(b), 0);
           return { 
@@ -90,7 +90,7 @@ const puzzlesData = [
         description: "Make the smallest 6-digit number where the difference between largest and smallest digit is 4",
         check: (grid) => {
           const num = [grid[0][1], grid[1][1], grid[2][1], grid[3][1], grid[4][1], grid[5][1]];
-          if (num.some(d => d === '' || d === 'black' || d === null)) return { valid: false, current: null };
+          if (num.some(d => d === '' || d === 'black' || d === null)) return { valid: false, current: null , expected: '100040 (diff=4)' };
           const numStr = num.join('');
           const digits = num.map(d => parseInt(d));
           const max = Math.max(...digits);
