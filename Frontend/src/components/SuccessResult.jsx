@@ -1,4 +1,5 @@
 import React from 'react'
+import { ArrowRight } from "lucide-react";
 
 const SuccessResult = ({ currentPuzzleIndex, totalPuzzles, onNextPuzzle, onRestart }) => (
   <div className="bg-white rounded-lg shadow-xl p-6 mb-6">
@@ -21,7 +22,7 @@ const SuccessResult = ({ currentPuzzleIndex, totalPuzzles, onNextPuzzle, onResta
             onClick={onRestart}
             className="px-8 py-3 bg-green-600 text-white text-lg font-bold rounded-lg hover:bg-green-700 flex items-center justify-center gap-3 transition-colors shadow-lg"
           >
-            <RotateCcw size={24} /> Restart from Puzzle 1
+             Restart from Puzzle 1
           </button>
         </div>
       )}

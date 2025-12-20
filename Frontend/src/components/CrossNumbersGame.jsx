@@ -42,9 +42,9 @@ const CrossNumbersGame = () => {
         numbers.push(num);
       }
     });
-    setAvailableNumbers([...currentPuzzle.numbers])
-    // return numbers.sort();
-    return currentPuzzle.numbers;
+    // setAvailableNumbers([...currentPuzzle.numbers])
+    return numbers.sort();
+    // return currentPuzzle.numbers;
   };
 
   const getRemainingNumbers = () => {
@@ -58,6 +58,8 @@ const CrossNumbersGame = () => {
       });
     });
 
+    console.log('Solution Count:', solutionCount);
+
     const usedCount = {};
     grid.forEach(row => {
       row.forEach(cell => {
@@ -68,6 +70,8 @@ const CrossNumbersGame = () => {
       });
     });
 
+    console.log('Used Count:', usedCount);
+
     const remaining = [];
     Object.keys(solutionCount).forEach(num => {
       const available = solutionCount[num] - (usedCount[num] || 0);
@@ -75,6 +79,7 @@ const CrossNumbersGame = () => {
         remaining.push(num);
       }
     });
+    console.log('Remaining Numbers:', remaining);
     return remaining.sort();
   };
 
@@ -97,7 +102,7 @@ const CrossNumbersGame = () => {
 
   useEffect(() => {
     if (grid.length > 0) {
-      // setAvailableNumbers(getRemainingNumbers());
+      setAvailableNumbers(getRemainingNumbers());
     }
   }, [grid]);
 
